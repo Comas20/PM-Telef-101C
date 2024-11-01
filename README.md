@@ -31,7 +31,9 @@ In the __DATA directory__, we have two main CSV files and one auxiliary file tha
 Together, these datasets form the backbone of our analysis, they providing the necessary information to examine the relationships between mobility, accidents, and weather conditions.
 
 ### MergingInfo.ipynb
-In this notebook we apply some changes to the two previous csv files to depurate our data and be able to start training our predictive model. The code is divided in two main parts. Firstly we clean the `ACCIDENTES_METEO-TABLA.csv` file using the following code:
+In this notebook, we implement a series of transformations on the two CSV files mentioned earlier to clean our data, preparing it for the training of our predictive model. The code is organized into two main sections.
+
+First, we focus on cleaning the `ACCIDENTES_METEO-TABLA.csv` file. This initial step involves several preprocessing techniques to ensure that the data is accurate and suitable for analysis. The following code illustrates this process:
 
 ```python
 # Importamos pandas
@@ -61,7 +63,7 @@ resultado.to_excel('../DEPURATION/DATA/resultado_agrupado.xlsx', index=False)
 resultado.head()
 ```
 
-In the second part of the notebook we merge the cleaned `ACCIDENTES_METEO-TABLA.csv` data that we have obtained using the above code, with our other csv file `movilidad_provincias_2023.csv` in order to obtain the clean data to train our model. To do this we use the next code:
+In the second part of the notebook, we merge the cleaned `ACCIDENTES_METEO-TABLA.csv` data obtained from the previous code with the `movilidad_provincias_2023.csv` file. This step is essential to create a understandable dataset that will be used to train our predictive model. The following code snippet illustrates how this merging process is performed:
 
 ```python
 # Cargamos el primer archivo (datos previos con información de víctimas y meteorología) desde Excel
@@ -111,6 +113,75 @@ resultado.to_excel('datos_limpios.xlsx', index=False)
 resultado.head()
 ```
 
-### datos_limpios.xlx
-After applying the notebook to our csv files we obtained the cleaned data that is stored with the name `datos_limpios.xlx`this data will be used to train our predictive model.
+### datos_limpios.xlsx
+After applying the processes outlined in the previous Notebook to our CSV files, we obtained the cleaned data, which is stored under the name `datos_limpios.xlsx`. This cleaned dataset will be used as the foundation for training our predictive model. It is essential to use this refined data, as it has undergone necessary transformations and filtering to ensure accuracy. By utilizing `datos_limpios.xlsx`, we can enhance the model's performance and reliability in predicting outcomes based on the our available features.
+
+## MODEL dir
+Inside the __MODEL__ directory, we have the following items:
+
+- A Jupyter Notebook: This file contains the algorithm and code used to train our predictive model. It details the methodology, including data preprocessing, model selection, training procedures, and evaluation metrics.
+
+- Accident predictions xlsx file: This file includes the estimated probabilities of accidents, which were generated after applying the model to a subset of our training data. This output is essential for understanding the model's predictive capabilities and assessing its performance.
+
+### Predictive_model.ipynb
+In this notebook, we implement the algorithm for our predictive model using the Random Forest methodology. This model aims to predict the probability of an accident based on various factors, including the provinces of origin and destination, meteorological conditions, and the specific day of the year. The code is organized into two main sections.
+
+First, we focus on training the Random Forest model using the cleaned dataset. This section includes the implementation of the training process, where we apply the necessary algorithms to develop a robust predictive model. And also the displaying of the evaluating metrics that we obtain. The following code illustrates how we achieve this:
+
+```python
+mport pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, roc_auc_score, classification_report
+
+# Carga de datos
+archivo = "../DEPURATION/datos_limpios.xlsx"  # Cambia al nombre de tu archivo
+df = pd.read_excel(archivo)
+
+# Preprocesamiento
+
+# Crear variable binaria para accidente: 1 si TOTAL_VICTIMAS > 0, de lo contrario 0
+df['accidente_ocurrido'] = (df['TOTAL_VICTIMAS'] > 0).astype(int)
+
+# Seleccionar variables de interés
+features = ['MES', 'DIA_MES', 'METEO_ORIGEN', 'METEO_DESTINO', 'provincia_origen', 'provincia_destino']
+X = df[features]
+y = df['accidente_ocurrido']
+
+
+# Codificar variables categóricas
+X_encoded = pd.get_dummies(X, columns=['METEO_ORIGEN', 'METEO_DESTINO', 'provincia_origen', 'provincia_destino'], drop_first=True)
+
+# Dividir en conjunto de entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X_encoded, y, test_size=0.2, random_state=42)
+
+# Entrenar el modelo de Random Forest
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Predecir en el conjunto de prueba
+y_pred = model.predict(X_test)
+y_pred_proba = model.predict_proba(X_test)[:, 1]  # Probabilidad de accidente
+
+# Evaluación del modelo
+print("Exactitud:", accuracy_score(y_test, y_pred))
+print("AUC-ROC:", roc_auc_score(y_test, y_pred_proba))
+print("\nInforme de clasificación:\n", classification_report(y_test, y_pred))
+```
+
+In the second section, we display the results of the model’s predictions. Here, we also store these predictions in the `predicciones_accidentes.xlsx` file, allowing for further analysis and review of the predicted accident probabilities. The following code demonstrates this process:
+
+```python
+X_test_original = X.loc[X_test.index]  # Seleccionamos las filas originales correspondientes a X_test
+resultado = X_test_original.copy()
+resultado['PROBABILIDAD_DE_ACCIDENTE'] = y_pred_proba
+resultado.to_excel('predicciones_accidentes.xlsx', index=False)
+resultado.head()
+```
+
+### predicciones_accidentes.xlsx
+
+
+
+
 
