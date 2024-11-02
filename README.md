@@ -9,7 +9,7 @@ On Mac/Linux this will be:
     pip install -r requirements.txt
 
 ## DEPURATION dir
-__IMPORTANT__ *to access the data inside the DEPURATION directory, you must request permission from the Project Manager (alvaro.monterrubio01@estudiant.upf.edu). Access to this data is restricted due to protections in place by Telefónica and other collaborating entities to ensure data security and confidentiality.*
+__IMPORTANT: *to access the data inside the DEPURATION directory, you must request permission from the Project Manager (alvaro.monterrubio01@estudiant.upf.edu). Access to this data is restricted due to protections in place by Telefónica and other collaborating entities to ensure data security and confidentiality.*__
 
 Inside the __DEPURATION__ directory, we have the following items:
 
