@@ -184,8 +184,33 @@ resultado.head()
 ### 1.2.2 predicciones_accidentes.xlsx
 After training the predictive model using our cleaned dataset, we generated accident predictions, which are stored in a file named `predicciones_accidentes.xlsx. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction.By analyzing this data, we aim to understand how these variables interact and influence accident rates. This information could prove useful for identifying trends and implementing targeted safety measures to reduce accidents in the future.
 
+### 1.2.3 Update of Predictive_model.ipynb
 
+(TO BE COMPLETED)
 
+### 1.2.4 Final predicciones_accidentes.xlsx
+
+(TO BE COMPLETED)
+
+## 1.3 DASHBOARD dir
+
+(TO BE COMPLETED)
+
+### 1.3.1 Dashboard structure
+
+(TO BE COMPLETED)
+
+### 1.3.2 Insertion of data
+
+(TO BE COMPLETED)
+
+### 1.3.3 Dashboard evaluation
+
+(TO BE COMPLETED)
+
+### 1.3.4 Final Statement
+
+(TO BE COMPLETED)
 
 
 
