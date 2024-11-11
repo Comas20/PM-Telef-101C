@@ -8,7 +8,7 @@ On Mac/Linux this will be:
     source .venv/bin/activate
     pip install -r requirements.txt
 
-## DEPURATION dir
+## 1.1 DEPURATION dir
 __IMPORTANT: *to access the data inside the DEPURATION directory, you must request permission from the Project Manager (alvaro.monterrubio01@estudiant.upf.edu). Access to this data is restricted due to protections in place by Telefónica and other collaborating entities to ensure data security and confidentiality.*__
 
 Inside the __DEPURATION__ directory, we have the following items:
@@ -21,7 +21,7 @@ Inside the __DEPURATION__ directory, we have the following items:
 
 Please note that the Jupyter Notebook is included as documentation of our work and also as a resource for merging different datasets in the future. We have already applied this process to our raw data related to mobility and accidents from 2023, users can leverage the notebook to adapt the cleaning and merging techniques to their own datasets as needed.
 
-### DATA dir
+### 1.1.2 DATA dir
 In the __DATA directory__, we have two main CSV files and one auxiliary file that is essential for obtaining the cleaned data.
 
 - `ACCIDENTES_METEO-TABLA.csv`: This file contains detailed data regarding accidents that occurred in various provinces throughout the year. For each day, it contains information about the number of accidents in each province, with the corresponding meteorological conditions on that day. This dataset is crucial for understanding how weather influences accident rates.
@@ -32,7 +32,7 @@ In the __DATA directory__, we have two main CSV files and one auxiliary file tha
   
 Together, these datasets form the backbone of our analysis, they providing the necessary information to examine the relationships between mobility, accidents, and weather conditions.
 
-### MergingInfo.ipynb
+### 1.1.3 MergingInfo.ipynb
 In this notebook, we implement a series of transformations on the two CSV files mentioned earlier to clean our data, preparing it for the training of our predictive model. The code is organized into two main sections.
 
 First, we focus on cleaning the `ACCIDENTES_METEO-TABLA.csv` file. This initial step involves several preprocessing techniques to ensure that the data is accurate and suitable for analysis. The following code illustrates this process:
@@ -118,14 +118,14 @@ resultado.head()
 ### datos_limpios.xlsx
 After applying the processes outlined in the previous Notebook to our CSV files, we obtained the cleaned data, which is stored under the name `datos_limpios.xlsx`. This cleaned dataset will be used as the foundation for training our predictive model. It is essential to use this refined data, as it has undergone necessary transformations and filtering to ensure accuracy. By utilizing `datos_limpios.xlsx`, we can enhance the model's performance and reliability in predicting outcomes based on the our available features.
 
-## MODEL dir
+## 1.2 MODEL dir
 Inside the __MODEL__ directory, we have the following items:
 
 - A Jupyter Notebook: This file contains the algorithm and code used to train our predictive model. It details the methodology, including data preprocessing, model selection, training procedures, and evaluation metrics.
 
 - Accident predictions xlsx file: This file includes the estimated probabilities of accidents, which were generated after applying the model to a subset of our training data. This output is essential for understanding the model's predictive capabilities and assessing its performance.
 
-### Predictive_model.ipynb
+### 1.2.1 Predictive_model.ipynb
 In this notebook, we implement the algorithm for our predictive model using the Random Forest methodology. This model aims to predict the probability of an accident based on various factors, including the provinces of origin and destination, meteorological conditions, and the specific day of the year. The code is organized into two main sections.
 
 First, we focus on training the Random Forest model using the cleaned dataset. This section includes the implementation of the training process, where we apply the necessary algorithms to develop a robust predictive model. And also the displaying of the evaluating metrics that we obtain. The following code illustrates how we achieve this:
@@ -181,7 +181,7 @@ resultado.to_excel('predicciones_accidentes.xlsx', index=False)
 resultado.head()
 ```
 
-### predicciones_accidentes.xlsx
+### 1.2.2 predicciones_accidentes.xlsx
 After training the predictive model using our cleaned dataset, we generated accident predictions, which are stored in a file named `predicciones_accidentes.xlsx. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction.By analyzing this data, we aim to understand how these variables interact and influence accident rates. This information could prove useful for identifying trends and implementing targeted safety measures to reduce accidents in the future.
 
 
