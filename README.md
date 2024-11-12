@@ -182,11 +182,11 @@ resultado.head()
 ```
 
 ### 1.2.2 predicciones_accidentes.xlsx
-After training the predictive model using our cleaned dataset, we generated accident predictions, which are stored in a file named `predicciones_accidentes.xlsx. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction.By analyzing this data, we aim to understand how these variables interact and influence accident rates. 
+After training the predictive model using our cleaned dataset, we generated accident predictions, which are stored in a file named `predicciones_accidentes.xlsx`. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction.By analyzing this data, we aim to understand how these variables interact and influence accident rates. 
 
-### 1.2.3 Update of Predictive_model_v2.ipynb
+### 1.2.3 Update of Predictive_model_V2.ipynb
 
-After the first execution where the model was completed, we test the model with the full data in order to get the model weights. This weights are stored in a separate file named `modelo_random_forest_weights.pkl` in a drive folder __(POSAR LINK)__ since it is too heavy to be stored in the __MODEL__ directory. When working with the model this weights will always be used.
+After the first execution where the model was completed, we stored the model weights to further trainings with other sets of data. This weights has been uploaded to a google drive directory, in order to acces to this confidential file you can request acces by using the link included in the text file `pre_trained_ra we test the model with the full data in order to get the model weights. This we link to acces to the weights updat are stored in a separated file inside MODEL folder named `modelo_random_forest_weights.pkl` in a drive folder __(POSAR LINK)__ since it is too heavy to be stored in the __MODEL__ directory. When working with the model this weights will always be used.
 
 (posar codi de python que generi els weights aqui)
 
