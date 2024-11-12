@@ -182,15 +182,32 @@ resultado.head()
 ```
 
 ### 1.2.2 predicciones_accidentes.xlsx
-After training the predictive model using our cleaned dataset, we generated accident predictions, which are stored in a file named `predicciones_accidentes.xlsx. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction.By analyzing this data, we aim to understand how these variables interact and influence accident rates. This information could prove useful for identifying trends and implementing targeted safety measures to reduce accidents in the future.
+After training the predictive model using our cleaned dataset, we generated accident predictions, which are stored in a file named `predicciones_accidentes.xlsx. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction.By analyzing this data, we aim to understand how these variables interact and influence accident rates. 
 
-### 1.2.3 Update of Predictive_model.ipynb
+### 1.2.3 Update of Predictive_model_v2.ipynb
 
-After the first execution where the model was completed, we wanted to test other ways of creating the model in order to see which is the one with better accuracy and outrock, and also trying to store the weights in a different location from the script.
+After the first execution where the model was completed, we test the model with the full data in order to get the model weights. This weights are stored in a separate file named XXXX in the __MODEL__ directory. When working with the model this weights will always be used.
 
-### 1.2.4 Final predicciones_accidentes.xlsx
+Also, it has been checked the metrics of the model in order to analyze the accuracy and the AUC-ROC, and the results where the following.
 
-(TO BE COMPLETED)
+Exactitud: 0.9734291094218565
+AUC-ROC: 0.9965846036793008
+
+Informe de clasificación:
+               precision    recall  f1-score   support
+
+           0       0.98      0.98      0.98     98563
+           1       0.94      0.95      0.94     30488
+
+    accuracy                           0.97    129051
+   macro avg       0.96      0.96      0.96    129051
+weighted avg       0.97      0.97      0.97    129051
+
+The `Predictive_model_v2.ipynb´file is stored in the __MODEL__ directory.
+
+### 1.2.4 Final final_predicciones_accidentes.xlsx
+
+After training the predictive model using the completed cleaned dataset and the weights file, we generated accident predictions, which are stored in a file named `final_predicciones_accidentes.xlsx in the __MODEL__ directory. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction. By analyzing this data, we aim to understand how these variables interact and influence accident rates. This information could prove useful for identifying trends and implementing targeted safety measures to reduce accidents in the future. 
 
 ## 1.3 DASHBOARD dir
 
