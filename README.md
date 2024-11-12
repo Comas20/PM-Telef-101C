@@ -121,9 +121,15 @@ After applying the processes outlined in the previous Notebook to our CSV files,
 ## 1.2 MODEL dir
 Inside the __MODEL__ directory, we have the following items:
 
-- A Jupyter Notebook: This file contains the algorithm and code used to train our predictive model. It details the methodology, including data preprocessing, model selection, training procedures, and evaluation metrics.
+- A Jupyter Notebook with the first model version: This file contains the algorithm and code used to train our predictive model. It details the methodology, including data preprocessing, model selection, training procedures, and evaluation metrics.
 
-- Accident predictions xlsx file: This file includes the estimated probabilities of accidents, which were generated after applying the model to a subset of our training data. This output is essential for understanding the model's predictive capabilities and assessing its performance.
+- Accident predictions xlsx file for small test set: This file includes the estimated probabilities of accidents, which were generated after applying the model to a subset of our training data. This output is essential for understanding the model's predictive capabilities and assessing its performance.
+
+- A Jupyter Notebook with the updated model version: This file contains the algorithm and code used to save the weights obtained after training our predictive model with the same configuration as the initial version. Additionally, it includes code to predict accident probabilities for the entire cleaned dataset. The notebook provides a detailed methodology, including data preprocessing steps, model selection rationale, training procedures, and evaluation metrics.
+
+- Accident predictions xlsx file for the whole dataset: This file includes the estimated probabilities of accidents, which were generated after applying the model to the whole cleaned dataset. This output is essential for understanding the model's predictive capabilities and assessing its performance.
+
+- Pre trained weights: This text file provides a link to a Google Drive folder containing the model weights saved after the initial training. These pre-trained weights enable the model to be applied to new datasets for prediction purposes without needing to retrain from scratch, streamlining future analysis and ensuring consistency with the original model configuration.
 
 ### 1.2.1 Predictive_model.ipynb
 In this notebook, we implement the algorithm for our predictive model using the Random Forest methodology. This model aims to predict the probability of an accident based on various factors, including the provinces of origin and destination, meteorological conditions, and the specific day of the year. The code is organized into two main sections.
@@ -181,7 +187,7 @@ resultado.to_excel('predicciones_accidentes.xlsx', index=False)
 resultado.head()
 ```
 
-In order to check the performance of the model after this first trainig configuration we have decided to display some accuracy metrics included below.
+To evaluate the performance of the model after this initial training configuration, we have decided to present several accuracy metrics, detailed below. These metrics will provide insights into the model’s predictive quality and help identify areas for potential improvement in future iterations.
 
 ```
 Exactitud: 0.9734291094218565
@@ -202,33 +208,67 @@ weighted avg       0.97      0.97      0.97    129051
 ### 1.2.2 predicciones_accidentes.xlsx
 After training the predictive model using our cleaned dataset, we generated accident predictions, which are stored in a file named `predicciones_accidentes.xlsx`. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction.By analyzing this data, we aim to understand how these variables interact and influence accident rates. 
 
-### 1.2.3 Update of Predictive_model_V2.ipynb
+### 1.2.3 Predictive_model_V2.ipynb
 
-After the first execution where the model was completed, we stored the model weights to further trainings with other sets of data. These weights have been uploaded to a google drive directory, in order to acces to this confidential file you can request acces by using the link included in the text file `pre_trained_model_weights.txt`. we test the model with the full data in order to get the model weights. This we link to acces to the weights updat are stored in a separated file inside MODEL folder named `modelo_random_forest_weights.pkl` in a drive folder __(POSAR LINK)__ since it is too heavy to be stored in the __MODEL__ directory. When working with the model this weights will always be used.
+After the initial model execution and completion, we implemented code to save the model weights for use in future training with other datasets. These weights have been uploaded to a secure Google Drive directory. To access this confidential file, you can request access via the link provided in the `pre_trained_model_weights.txt` file. The code used to store the model weights is shown below:
 
-(posar codi de python que generi els weights aqui)
+```python
+import joblib
+joblib.dump(model, 'modelo_random_forest_weights.pkl')
+print("Modelo guardado como 'modelo_random_forest.pkl'")
+```
 
-Also, it has been checked the metrics of the model in order to analyze the accuracy and the AUC-ROC, and the results where the following.
+Oce the wights are stored, we enhanced the previous version of the predictive model script to calculate the accident risk for all entries in datos_limpios.xlsx. To generate these predictions for the complete clean dataset, we first loaded the stored weights, then ran the prediction process on the entire dataset. The code used to load the weights and generate the predictions is shown below:
 
-**Exactitud**: 0.9734291094218565  
-**AUC-ROC**: 0.9965846036793008
+```python
+model_cargado = joblib.load('../MODEL/modelo_random_forest_weights.pkl')
+archivo = "../DEPURATION/datos_limpios.xlsx"  # Cambia al nombre de tu archivo
 
-## Informe de clasificación
+df = pd.read_excel(archivo)
+df['accidente_ocurrido'] = (df['TOTAL_VICTIMAS'] > 0).astype(int)
 
-| Clase | Precision | Recall | F1-score | Support |
-|-------|-----------|--------|----------|---------|
-| 0     | 0.98      | 0.98   | 0.98     | 98563   |
-| 1     | 0.94      | 0.95   | 0.94     | 30488   |
-| **Exactitud**  |           |        | 0.97     | 129051  |
-| **Macro avg**  | 0.96      | 0.96   | 0.96     | 129051  |
-| **Weighted avg** | 0.97    | 0.97   | 0.97     | 129051  |
+X_v2 = df[features]
+y_v2 = df['accidente_ocurrido']
 
+X_v2_encoded = pd.get_dummies(X_v2, columns=['METEO_ORIGEN', 'METEO_DESTINO', 'provincia_origen', 'provincia_destino'], drop_first=True)
+y_pred_nuevo = model_cargado.predict(X_v2_encoded)
+y_pred_proba_nuevo = model_cargado.predict_proba(X_v2_encoded)[:, 1]
 
-The `Predictive_model_v2.ipynb`file is stored in the __MODEL__ directory.
+print("Exactitud:", accuracy_score(y_v2, y_pred_nuevo))
+print("AUC-ROC:", roc_auc_score(y_v2, y_pred_proba_nuevo))
+print("\nInforme de clasificación:\n", classification_report(y_v2, y_pred_nuevo))
+```
 
-### 1.2.4 Final final_predicciones_accidentes.xlsx
+After generating the predictions, we displayed the model’s results and saved them to the file final_predicciones_accidentes.xlsx for further analysis and review of the predicted accident probabilities. The code below demonstrates this process:
 
-After training the predictive model using the completed cleaned dataset and the weights file, we generated accident predictions, which are stored in a file named `final_predicciones_accidentes.xlsx` in the __MODEL__ directory. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction. By analyzing this data, we aim to understand how these variables interact and influence accident rates. This information could prove useful for identifying trends and implementing targeted safety measures to reduce accidents in the future. 
+```python
+X_test_total = X_v2.loc[X_v2_encoded.index]  # Seleccionamos las filas originales correspondientes a X_test
+resultado = X_test_total.copy()
+resultado['PROBABILIDAD_DE_ACCIDENTE'] = y_pred_proba_nuevo
+resultado.to_excel('final_predicciones_accidentes.xlsx', index=False)
+resultado.head()
+```
+
+Again, to evaluate the performance of the model after this initial training configuration, we have decided to present several accuracy metrics, detailed below. These metrics will provide insights into the model’s predictive quality and help identify areas for potential improvement in future iterations.
+
+```
+Exactitud: 0.9946858136485787
+AUC-ROC: 0.999633461635886
+
+Informe de clasificación:
+               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00    493039
+           1       0.99      0.99      0.99    152215
+
+    accuracy                           0.99    645254
+   macro avg       0.99      0.99      0.99    645254
+weighted avg       0.99      0.99      0.99    645254
+```
+
+### 1.2.4 final_predicciones_accidentes.xlsx
+
+After loading the weights obtained from the initial training, we generated accident predictions for the entire cleaned dataset, storing the results in `final_predicciones_accidentes.xlsx`. This dataset includes information linking origin and destination provinces, meteorological conditions, and specific day and month details for each prediction. By analyzing these variables, we aim to understand their interaction and influence on accident rates. This insight could help identify patterns and support targeted safety measures to reduce accidents in the future.
 
 ## 1.3 DASHBOARD dir
 
