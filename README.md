@@ -184,20 +184,20 @@ resultado.head()
 In order to check the performance of the model after this first trainig configuration we have decided to display some accuracy metrics included below.
 
 ```
-**Exactitud**: 0.9734291094218565  
-**AUC-ROC**: 0.9965846036793008
+Exactitud: 0.9734291094218565
+AUC-ROC: 0.9965846036793008
 
-## Informe de clasificación
+Informe de clasificación:
+               precision    recall  f1-score   support
 
-| Clase | Precision | Recall | F1-score | Support |
-|-------|-----------|--------|----------|---------|
-| 0     | 0.98      | 0.98   | 0.98     | 98563   |
-| 1     | 0.94      | 0.95   | 0.94     | 30488   |
-| **Exactitud**  |           |        | 0.97     | 129051  |
-| **Macro avg**  | 0.96      | 0.96   | 0.96     | 129051  |
-| **Weighted avg** | 0.97    | 0.97   | 0.97     | 129051  |
+           0       0.98      0.98      0.98     98563
+           1       0.94      0.95      0.94     30488
+
+    accuracy                           0.97    129051
+   macro avg       0.96      0.96      0.96    129051
+weighted avg       0.97      0.97      0.97    129051
+
 ```
-
 
 ### 1.2.2 predicciones_accidentes.xlsx
 After training the predictive model using our cleaned dataset, we generated accident predictions, which are stored in a file named `predicciones_accidentes.xlsx`. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction.By analyzing this data, we aim to understand how these variables interact and influence accident rates. 
