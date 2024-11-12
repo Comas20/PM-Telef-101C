@@ -186,7 +186,7 @@ After training the predictive model using our cleaned dataset, we generated acci
 
 ### 1.2.3 Update of Predictive_model.ipynb
 
-(TO BE COMPLETED)
+After the first execution where the model was completed, we wanted to test other ways of creating the model in order to see which is the one with better accuracy and outrock, and also trying to store the weights in a different location from the script.
 
 ### 1.2.4 Final predicciones_accidentes.xlsx
 
@@ -202,15 +202,15 @@ After training the predictive model using our cleaned dataset, we generated acci
 
 ### 1.3.2 Insertion of data
 
-(TO BE COMPLETED)
+Once the structure of the dashboard is completed showing all charts and diagrams of most interest, it is time to introduce the dataset `predicciones_accidentes.xlsx´.
 
 ### 1.3.3 Dashboard evaluation
 
-(TO BE COMPLETED)
+(This step will be completed for the Final delivery)
 
 ### 1.3.4 Final Statement
 
-(TO BE COMPLETED)
+(This step will be completed for the Final delivery)
 
 
 
