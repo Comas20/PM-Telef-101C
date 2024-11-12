@@ -205,11 +205,11 @@ Also, it has been checked the metrics of the model in order to analyze the accur
 | **Weighted avg** | 0.97    | 0.97   | 0.97     | 129051  |
 
 
-The `Predictive_model_v2.ipynb´file is stored in the __MODEL__ directory.
+The `Predictive_model_v2.ipynb`file is stored in the __MODEL__ directory.
 
 ### 1.2.4 Final final_predicciones_accidentes.xlsx
 
-After training the predictive model using the completed cleaned dataset and the weights file, we generated accident predictions, which are stored in a file named `final_predicciones_accidentes.xlsx´ in the __MODEL__ directory. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction. By analyzing this data, we aim to understand how these variables interact and influence accident rates. This information could prove useful for identifying trends and implementing targeted safety measures to reduce accidents in the future. 
+After training the predictive model using the completed cleaned dataset and the weights file, we generated accident predictions, which are stored in a file named `final_predicciones_accidentes.xlsx` in the __MODEL__ directory. This dataset correlates the origin and destination provinces with meteorological conditions, as well as the specific day and month of each prediction. By analyzing this data, we aim to understand how these variables interact and influence accident rates. This information could prove useful for identifying trends and implementing targeted safety measures to reduce accidents in the future. 
 
 ## 1.3 DASHBOARD dir
 
@@ -221,7 +221,7 @@ After training the predictive model using the completed cleaned dataset and the 
 
 ### 1.3.2 Insertion of data
 
-Once the structure of the dashboard is completed showing all charts and diagrams of most interest, it is time to introduce the dataset `predicciones_accidentes.xlsx´.
+Once the structure of the dashboard is completed showing all charts and diagrams of most interest, it is time to introduce the dataset `predicciones_accidentes.xlsx`.
 
 ### 1.3.3 Dashboard evaluation
 
