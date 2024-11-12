@@ -186,7 +186,7 @@ After training the predictive model using our cleaned dataset, we generated acci
 
 ### 1.2.3 Update of Predictive_model_v2.ipynb
 
-After the first execution where the model was completed, we test the model with the full data in order to get the model weights. This weights are stored in a separate file named XXXX.pkl in the __MODEL__ directory. When working with the model this weights will always be used.
+After the first execution where the model was completed, we test the model with the full data in order to get the model weights. This weights are stored in a separate file named modelo_random_forest_weights.pkl in a drive folder since it is too heavy to be stored in the __MODEL__ directory. When working with the model this weights will always be used.
 
 (posar codi de python que generi els weights aqui)
 
