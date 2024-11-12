@@ -218,7 +218,7 @@ joblib.dump(model, 'modelo_random_forest_weights.pkl')
 print("Modelo guardado como 'modelo_random_forest.pkl'")
 ```
 
-Oce the wights are stored, we enhanced the previous version of the predictive model script to calculate the accident risk for all entries in datos_limpios.xlsx. To generate these predictions for the complete clean dataset, we first loaded the stored weights, then ran the prediction process on the entire dataset. The code used to load the weights and generate the predictions is shown below:
+Oce the wights are stored, we enhanced the previous version of the predictive model script to calculate the accident risk for all entries in `datos_limpios.xlsx`. To generate these predictions for the complete clean dataset, we first loaded the stored weights, then ran the prediction process on the entire dataset. The code used to load the weights and generate the predictions is shown below:
 
 ```python
 model_cargado = joblib.load('../MODEL/modelo_random_forest_weights.pkl')
@@ -239,7 +239,7 @@ print("AUC-ROC:", roc_auc_score(y_v2, y_pred_proba_nuevo))
 print("\nInforme de clasificación:\n", classification_report(y_v2, y_pred_nuevo))
 ```
 
-After generating the predictions, we displayed the model’s results and saved them to the file final_predicciones_accidentes.xlsx for further analysis and review of the predicted accident probabilities. The code below demonstrates this process:
+After generating the predictions, we displayed the model’s results and saved them to the file `final_predicciones_accidentes.xlsx` for further analysis and review of the predicted accident probabilities. The code below demonstrates this process:
 
 ```python
 X_test_total = X_v2.loc[X_v2_encoded.index]  # Seleccionamos las filas originales correspondientes a X_test
