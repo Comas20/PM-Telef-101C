@@ -190,18 +190,20 @@ After the first execution where the model was completed, we test the model with 
 
 Also, it has been checked the metrics of the model in order to analyze the accuracy and the AUC-ROC, and the results where the following.
 
-Exactitud: 0.9734291094218565
-AUC-ROC: 0.9965846036793008
 
-Informe de clasificación:
-               precision    recall  f1-score   support
+**Exactitud**: 0.9734291094218565  
+**AUC-ROC**: 0.9965846036793008
 
-           0       0.98      0.98      0.98     98563
-           1       0.94      0.95      0.94     30488
+## Informe de clasificación
 
-    accuracy                           0.97    129051
-   macro avg       0.96      0.96      0.96    129051
-weighted avg       0.97      0.97      0.97    129051
+| Clase | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|---------|
+| 0     | 0.98      | 0.98   | 0.98     | 98563   |
+| 1     | 0.94      | 0.95   | 0.94     | 30488   |
+| **Exactitud**  |           |        | 0.97     | 129051  |
+| **Macro avg**  | 0.96      | 0.96   | 0.96     | 129051  |
+| **Weighted avg** | 0.97    | 0.97   | 0.97     | 129051  |
+
 
 The `Predictive_model_v2.ipynb´file is stored in the __MODEL__ directory.
 
