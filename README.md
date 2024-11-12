@@ -131,7 +131,7 @@ In this notebook, we implement the algorithm for our predictive model using the 
 First, we focus on training the Random Forest model using the cleaned dataset. This section includes the implementation of the training process, where we apply the necessary algorithms to develop a robust predictive model. And also the displaying of the evaluating metrics that we obtain. The following code illustrates how we achieve this:
 
 ```python
-mport pandas as pd
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, roc_auc_score, classification_report
@@ -186,10 +186,11 @@ After training the predictive model using our cleaned dataset, we generated acci
 
 ### 1.2.3 Update of Predictive_model_v2.ipynb
 
-After the first execution where the model was completed, we test the model with the full data in order to get the model weights. This weights are stored in a separate file named XXXX in the __MODEL__ directory. When working with the model this weights will always be used.
+After the first execution where the model was completed, we test the model with the full data in order to get the model weights. This weights are stored in a separate file named XXXX.pkl in the __MODEL__ directory. When working with the model this weights will always be used.
+
+(posar codi de python que generi els weights aqui)
 
 Also, it has been checked the metrics of the model in order to analyze the accuracy and the AUC-ROC, and the results where the following.
-
 
 **Exactitud**: 0.9734291094218565  
 **AUC-ROC**: 0.9965846036793008
@@ -213,15 +214,25 @@ After training the predictive model using the completed cleaned dataset and the 
 
 ## 1.3 DASHBOARD dir
 
-(TO BE COMPLETED)
+In the __DASHBOARD Directory__ it is stored the Power BI interactive dashboard of accidents prediction.
+
+- (Arxiu del dashboard): This file contains the main interactive dashboard
+- (Qualsevol altre arxiu necessari)
 
 ### 1.3.1 Dashboard structure
 
-(TO BE COMPLETED)
+With the tool Power BI as a main developer, an interactive dashboard with data analyitics has been created in order to identifying trends and implement targeted safety measures to reduce accidents in the future.  It is very important to select the most appropiate charts and diagrams that show the most relevant information. 
+
+This is why we have selected:
+(posar els diferents tipus de charts que s'han triat, per a quina informació i perquè)
+
+- chart 1: This chart has been selected to display...............
+- chart 2: This chart has been selected to display...............
+
 
 ### 1.3.2 Insertion of data
 
-Once the structure of the dashboard is completed showing all charts and diagrams of most interest, it is time to introduce the dataset `predicciones_accidentes.xlsx`.
+Once the structure of the dashboard is completed showing all charts and diagrams of most interest, it is time to introduce the dataset `final_predicciones_accidentes.xlsx`.
 
 ### 1.3.3 Dashboard evaluation
 
