@@ -274,8 +274,7 @@ After loading the weights obtained from the initial training, we generated accid
 
 In the __DASHBOARD Directory__ it is stored the Power BI interactive dashboard of accidents prediction.
 
-- (Arxiu del dashboard): This file contains the main interactive dashboard
-- (Qualsevol altre arxiu necessari)
+- dashbord text file: This file contains the link to the implemented interactive dashboard.
 
 ### 1.3.1 Dashboard structure
 
