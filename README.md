@@ -281,10 +281,28 @@ In the __DASHBOARD Directory__ it is stored the Power BI interactive dashboard o
 With the tool Power BI as a main developer, an interactive dashboard with data analyitics has been created in order to identifying trends and implement targeted safety measures to reduce accidents in the future.  It is very important to select the most appropiate charts and diagrams that show the most relevant information. 
 
 This is why we have selected:
-(posar els diferents tipus de charts que s'han triat, per a quina informació i perquè)
 
-- chart 1: This chart has been selected to display...............
-- chart 2: This chart has been selected to display...............
+- **Interactive Map**:  
+  - Purpose: To show the geographical distribution of accidents across the provinces.  
+  - Reason for Selection: This chart provides a clear spatial representation of areas with higher accident risks, enabling quick identification of high-risk zones for targeted safety interventions.
+
+- **Stacked Bar Chart**:  
+  - Purpose: To display the proportion of accident probabilities across different provinces.  
+  - Reason for Selection: This visualization allows comparison of accident risk across provinces, helping to prioritize regions requiring attention.
+
+- **Pie Chart**:  
+  - Purpose: To break down the proportion of accidents by weather conditions (e.g., rainy, sunny, foggy).  
+  - Reason for Selection: Highlights the influence of weather on accident rates, useful for designing weather-specific safety measures.
+
+In addition to these charts, the dashboard includes:
+
+- **Filters**:  
+  - Purpose: To dynamically refine the displayed data based on the province.  
+  - Reason for Selection: Filters enhance user interaction, allowing stakeholders to focus on areas of particular interest.
+
+- **Cards**:  
+  - Purpose: To display key metrics such as number of accidents, number of victims, accident rate (`nº accidents/nº trips`).  
+  - Reason for Selection: Cards provide a quick summary of critical data points.
 
 
 ### 1.3.2 Insertion of data
