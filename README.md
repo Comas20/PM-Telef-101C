@@ -311,11 +311,17 @@ Once the structure of the dashboard is completed showing all charts and diagrams
 
 ### 1.3.3 Dashboard evaluation
 
-(This step will be completed for the Final delivery)
+
 
 ### 1.3.4 Final Statement
 
-(This step will be completed for the Final delivery)
+We are excited to announce that this project has been successfully completed, fulfilling all the objectives and delivering valuable results. As part of this work, we have developed a highly accurate predictive model and an interactive dashboard designed to enhance decision-making and user engagement.
+
+The predictive model was created with a focus on precision, scalability, and reliability. It incorporates advanced methodologies to ensure robust forecasting capabilities that can adapt to diverse scenarios. Every stage of the model's development, from data preprocessing to validation, was executed with meticulous attention to detail to guarantee the best possible performance.
+
+In addition to the predictive model, we have created an interactive dashboard tailored for an intuitive and seamless user experience. This dashboard empowers users to explore data and predictions dynamically, offering a wide range of features. Its design emphasizes usability and flexibility, making it a valuable tool for uncovering insights and guiding strategic decisions.
+
+This project reflects our commitment to combining technical rigor with practical utility. We are confident that the deliverables will provide meaningful impact and invite you to explore the repository to review the implementation, test the tools, and share your feedback. Thank you for your interest and support throughout this journey!
 
 
 
