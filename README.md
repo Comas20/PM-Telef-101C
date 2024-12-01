@@ -310,30 +310,37 @@ In addition to these charts, the dashboard includes:
 Once the structure of the dashboard is completed showing all charts and diagrams of most interest, it is time to introduce the dataset `final_predicciones_accidentes.xlsx`.
 
 ### 1.3.3 Dashboard evaluation
+
 Evaluating the dashboard is a crucial step to ensure its accuracy, functionality, and effectiveness as an analytical tool. This dashboard, developed in Power BI, is designed to provide an interactive and visual representation of accident data, enabling users to identify patterns and make informed decisions. Below are the details of the evaluation for the dashboard's various components:
 
 **1.3.3.1 Data Accuracy Evaluation**
+
 Data Source: The dashboard uses the final_predicciones_accidentes.xlsx file as its data source, containing detailed information on accidents, provinces, weather conditions, and daily statistics.
 Data Verification: Key metrics such as the total number of accidents, accident rate, and total number of victims were cross-checked against the source data to ensure the integrity of the information presented.
 
 **1.3.3.2 Functionality Testing**
+
 Accident Probability by Province Bar Chart: This bar chart was tested to confirm that it updates correctly and displays provinces with higher accident probabilities, highlighting critical areas like Alicante, Badajoz, and the Balearic Islands.
 Interactive Geographic Map: The map was tested for responsiveness, ensuring it allows users to zoom in, click on different provinces, and view real-time data. The shading intensity varies accurately according to the number of registered accidents.
 Weather Condition Pie Chart: The pie chart was verified to ensure it accurately displays the distribution of accidents by weather conditions, such as rain, sun, and fog.
 General Metrics Cards: Cards displaying key figures, like the total number of accidents, accident rate, and number of victims, were checked to confirm proper display and automatic updates when filters are applied.
 
 **1.3.3.3 Visual Consistency**
+
 Chart Design: All visual elements, including the map and charts, were evaluated for consistency in color scheme, formatting, and layout, facilitating clear data interpretation.
 Labels and Legends: It was verified that all charts have clear labels, titles, and legends that accurately describe the data being presented, making the visualization understandable for users.
 Information Layout: The dashboard layout was checked to ensure all elements are logically and accessibly aligned, making it easy for users to find relevant information.
 
 **1.3.3.4 Performance Review**
+
 Load Times: The dashboard was tested to evaluate load times and the responsiveness of interactive elements when filters and selections are applied. It was found to perform efficiently with minimal load times.
 Responsiveness: The dashboard’s adaptability to different devices and screen sizes was reviewed, ensuring it remains functional and visually consistent on desktops, laptops, and tablets.
 
 **1.3.3.5 Insight and Actionability Analysis**
+
 Decision-Making Support: The evaluation confirmed that the dashboard provides actionable insights that help users identify high-risk areas, assess the impact of weather conditions, and observe regional accident patterns.
 Clarity of Data Presentation: The dashboard's visualizations, such as the accident probability by province bar chart and the weather conditions pie chart, were reviewed to ensure the data is presented in a clear and understandable manner, facilitating quick identification of areas that need attention.
+
 
 ### 1.3.4 Final Statement
 
